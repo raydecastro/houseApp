@@ -46,4 +46,26 @@ var love = love || {};
     this.context.fill();
   };
 
+  CanvasApi.prototype.drawGrid = function () {
+    var gridWidth = 1024;
+    var gridHeight = 768;
+
+    this.context.setLineDash([5, 10]);
+
+    var x, p = 0;
+    for (x = 0; x <= gridWidth; x += 50) {
+      this.context.moveTo(0.5 + x + p, p);
+      this.context.lineTo(0.5 + x + p, gridHeight + p);
+    }
+
+
+    for (x = 0; x <= gridHeight; x += 50) {
+      this.context.moveTo(p, 0.5 + x + p);
+      this.context.lineTo(gridWidth + p, 0.5 + x + p);
+    }
+
+    this.context.strokeStyle = "gray";
+    this.context.stroke();
+  };
+
 })(love);

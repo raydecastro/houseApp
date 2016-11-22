@@ -9,6 +9,8 @@ const canvas = new love.CanvasApi('loveCanvas');
 // canvas.drawCircle(originX, originY - radius * 0, radius, 'green');
 // canvas.drawCircle(originX, originY + radius * 1, radius, 'red');
 
+canvas.drawGrid();
+
 canvas.drawRectangle(100, 300, 400, 200, '#D2CECA');
 
 canvas.drawTriangle(300, 100, 50, 300, 550, 300, '#2277BA');
