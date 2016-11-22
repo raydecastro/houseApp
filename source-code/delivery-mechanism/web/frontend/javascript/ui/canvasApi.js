@@ -8,6 +8,11 @@ var love = love || {};
   function CanvasApi(canvasId) {
     this.canvas = document.getElementById(canvasId);
     this.context = this.canvas.getContext("2d");
+    this.colors = {
+      lightSaberBlue: "#2719C7",
+      lightSaberGreen: "#17AF0A",
+      lightSaberRed: "#CE0C2C"
+    };
   }
 
   CanvasApi.prototype.drawCircle = function (x, y, r, color) {
@@ -50,21 +55,24 @@ var love = love || {};
     var gridWidth = 1024;
     var gridHeight = 768;
 
-    this.context.setLineDash([5, 10]);
+    this.context.setLineDash([2, 4]);
 
     var x, p = 0;
-    for (x = 0; x <= gridWidth; x += 50) {
+    for (x = 0; x <= gridWidth; x += 32) {
       this.context.moveTo(0.5 + x + p, p);
       this.context.lineTo(0.5 + x + p, gridHeight + p);
     }
 
-
-    for (x = 0; x <= gridHeight; x += 50) {
+    for (x = 0; x <= gridHeight; x += 32) {
       this.context.moveTo(p, 0.5 + x + p);
       this.context.lineTo(gridWidth + p, 0.5 + x + p);
     }
 
-    this.context.strokeStyle = "gray";
+    this.context.moveTo(gridWidth, 0)
+    this.context.lineTo(gridWidth, gridHeight);
+    this.context.moveTo(0, gridHeight);
+    this.context.lineTo(gridWidth, gridHeight);
+    this.context.strokeStyle = this.colors.lightSaberBlue;
     this.context.stroke();
   };
 
