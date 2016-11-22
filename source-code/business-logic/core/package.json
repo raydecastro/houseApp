@@ -1,0 +1,13 @@
+{
+  "name": "houseapp-core",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "test": "mocha",
+    "destroy": "mocha test --recursive --watch"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
+  }
+}
